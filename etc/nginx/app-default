@@ -1,2 +1,9 @@
 listen 443 ssl;
 listen [::]:443 ssl;
+
+proxy_set_header Host $host;
+proxy_set_header X-Real-IP $remote_addr;
+
+location / {
+	proxy_pass http://127.0.0.1:8080$request_uri;
+}
