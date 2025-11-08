@@ -66,3 +66,32 @@ Setting up Universal Firewall to block all traffic except on our SSH port:
 ufw allow 32222/tcp
 ufw enable
 ```
+
+# Nginx and SSL
+## Setup nginx
+Clone this repo _somewhere_ (for example, `/home/gikkman/development/gikkman.com`). Then, from the nginx installation folder (usually `/etc/nginx`), symlink the following:
+* nginx.conf -> /home/gikkman/development/gikkman.com/nginx.conf
+* sites-available -> /home/gikkman/development/gikkman.com/etc/nginx/sites-available/
+
+## Issue SSL cert
+To issue a cert, run the following command. You can bake several domains into the same cert (by adding more `-d` flags) or keep them as separate certs. I currently run mine as two separate.
+
+```sh
+certbot certonly --dns-digitalocean --dns-digitalocean-credentials /etc/certbot/certbot-creds.ini -d 'gikkman.com' -d '*.gikkman.com'
+```
+
+The file certbot-creds.ini should contain a READ WRITE token for DigitalOcean (create it under /account/api/tokens) and have the following format:
+```ini
+dns_digitalocean_token = <TOKEN>
+```
+
+## Renew SSL cert
+You can renew all certs managed by certbot by running
+```sh
+certbot renew
+```
+
+If you want to see all certs currently managed, run
+```sh
+certbot certificates
+```
