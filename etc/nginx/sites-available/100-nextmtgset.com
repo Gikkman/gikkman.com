@@ -9,9 +9,6 @@ server {
 	ssl_certificate		/etc/letsencrypt/live/nextmtgset.com/fullchain.pem;
 	ssl_certificate_key	/etc/letsencrypt/live/nextmtgset.com/privkey.pem;
 
-	listen 443 ssl default_server;
-	listen [::]:443 ssl default_server;
-
 	root /home/gikkman/development/nextmtgset.com;
 
 	index index.html;
