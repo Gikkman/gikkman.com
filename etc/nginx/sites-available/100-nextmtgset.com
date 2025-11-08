@@ -19,5 +19,5 @@ server {
 		try_files $uri =404;
 	}
 
-    error_page 404 /404.html
+    error_page 404 /404.html;
 }
