@@ -21,6 +21,8 @@
 server {
 	listen 443 ssl default_server;
 	listen [::]:443 ssl default_server;
+	ssl_certificate		/etc/letsencrypt/live/gikkman.com/fullchain.pem;
+	ssl_certificate_key	/etc/letsencrypt/live/gikkman.com/privkey.pem;
 
 	root /var/www/html;
 
