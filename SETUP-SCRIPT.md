@@ -20,6 +20,7 @@ All of these actions will be performed as the `root` user.
 
 Begin with setting some default stuff for the root user:
 ```bash
+update-alternatives --config editor
 echo "export EDITOR=vim" >> $HOME/.bashrc
 echo "set number" >> $HOME/.vimrc
 ```
