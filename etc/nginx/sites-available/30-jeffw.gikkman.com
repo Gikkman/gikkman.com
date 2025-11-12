@@ -12,7 +12,7 @@ server {
 	proxy_set_header Host $host;
 	proxy_set_header X-Real-IP $remote_addr;
 
-	root /var/www/jeffw/public;
+	root /var/www/jeffw.gikkman.com/public;
 
 	index index.html;
 
